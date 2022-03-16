@@ -1,0 +1,16 @@
+{
+  "menus":[
+    {
+      "name":"home",
+      "path": "./packages/hello/index.js"
+    },
+    {
+      "name":"hello",
+      "path": "./packages/hello/index.js"
+    },
+    {
+      "name":"button",
+      "path": "./packages/hello/index.js"
+    }
+  ]
+}
