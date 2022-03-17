@@ -1,23 +1,17 @@
 import Hello from './components/hello/index'
 import Button from './components/button/index'
 // import Panel from './components/panel/index'
-// import Message from './components/message/index'
+import Msg from './components/msg/index'
 
 
 const components = [
   Hello,
   Button,
   // Panel,
-  // Message,
-  
+
 ]
 
-//import hello from './utils/hello';
 import mobile from './utils/mobile';
-
-const methods = [
-  {name:'$mobile',fn:mobile},
-]
 
 import focus from './directives/focus'
 // 定义install方法
@@ -33,11 +27,10 @@ const install = function (Vue) {
   })
 
   // 添加实例方法
-  methods.forEach(method => {
-    Vue.prototype[method.name] =method.fn ;
-  })
+  Vue.prototype.$msg = Msg;
+  Vue.prototype.$mobile = mobile;
 
-  //Vue.prototype.$msg =Message ;
+
 
 
   // 添加全局指令
@@ -53,7 +46,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 // 导出
 export default {
   install,// 导出的对象必须具有 install，才能被 Vue.use() 方法安装
-  version: '0.1.5',
+  version: '0.1.0',
   ...components
 
 }

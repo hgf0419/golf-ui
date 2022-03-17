@@ -3,8 +3,10 @@
 # 忽略目录
 node_modules
 /docs
+/notes
 /dist
 /examples
+/src
 /packages
 /public
 

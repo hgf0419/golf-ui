@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Message from './src/message.vue';
+import Msg from './src/main.vue';
 const defaults = {
     visible:false,
     content:undefined,
@@ -15,12 +15,13 @@ const typeMap = {
   "warning":'icon-stopwatch',
   "success":'icon-checkmark-outline'
 }
-const wrapId='wrap-message-'+new Date().getTime();
-const MessageVueConstructor = Vue.extend(Message);
+const wrapId='wrap-msg-'+new Date().getTime();
+const MsgVueConstructor = Vue.extend(Msg);
 
-MessageVueConstructor.prototype.close = function() {
+MsgVueConstructor.prototype.close = function() {
   var vm=this;
   this.$on('after-leave', _ => {
+    console.log(_);
     if (vm.$el && vm.$el.parentNode) {
       vm.$el.parentNode.removeChild(vm.$el);
     }
@@ -29,10 +30,12 @@ MessageVueConstructor.prototype.close = function() {
   vm.visible = false;
 
 };
-const messageBox = (options = {}) => {
-    if (Vue.prototype.$isServer) return;
+const msgBox = (options = {}) => {
+    console.log(1);
+    
     options = Object.assign({}, defaults, options);
-    let instance = new MessageVueConstructor({
+    console.log(options);
+    let instance = new MsgVueConstructor({
       el: document.createElement('div'),
       data: options
     });
@@ -72,5 +75,5 @@ const messageBox = (options = {}) => {
     return instance;
   };
 
-export default messageBox;
+export default msgBox;
 

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import PettyUI from '../packages/index'
-Vue.use(PettyUI)
+import GolfUI from '../packages/index'
+Vue.use(GolfUI)
 
 Vue.config.productionTip = false
 

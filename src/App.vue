@@ -1,26 +1,28 @@
 <template>
   <div id="app">
     <div class="nav">
-      <a v-for="item in menus" :key="item.name" @click="change(item)">{{item.name}}</a>
+      <a v-for="item in menus" :key="item.name" @click="change(item)">{{
+        item.name
+      }}</a>
     </div>
-    
 
     <!-- 动态组件 -->
     <div class="main">
-      <view-home v-show="menu=='home'"></view-home>
+      <div class="">
+        <view-home v-show="menu == 'home'"></view-home>
 
-      <view-hello v-show="menu=='hello'"></view-hello>
+        <view-hello v-show="menu == 'hello'"></view-hello>
 
-
-      <view-button v-show="menu=='button'"></view-button>
-
+        <view-button v-show="menu == 'button'"></view-button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 
-import cfg from "../cfg.json";
+
+import cfg from "./views/cfg.json";
 
 import viewHome from "./views/view-home.vue";
 import viewHello from "./views/view-hello.vue";
@@ -31,23 +33,21 @@ export default {
   components: {
     viewHome,
     viewHello,
-    viewButton
+    viewButton,
   },
   data() {
     return {
-      menus:cfg.menus,
-      menu:'',
+      menus: cfg.menus,
+      menu: "",
     };
   },
-  methods:{
-    change(r){
-      this.menu=r.name;
-    }
+  methods: {
+    change(r) {
+      this.menu = r.name;
+    },
   },
   mounted() {
-
-    this.menu=this.menus[0].name;
-    
+    this.menu = this.menus[0].name;
   },
 };
 </script>
@@ -61,20 +61,21 @@ body {
   margin: 0;
 }
 
-.nav{
+.nav {
   height: 50px;
   line-height: 50px;
   background: #09f;
   text-align: center;
 }
-.nav a{
+.nav a {
   margin: 10px;
+  cursor: pointer;
 }
 
-.main{
+.main {
   padding: 10px;
   width: 80%;
   margin: 10px auto;
-  border:1px dashed #ddd;
+  border: 1px dashed #ddd;
 }
 </style>

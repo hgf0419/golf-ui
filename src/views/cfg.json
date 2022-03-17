@@ -1,0 +1,16 @@
+{
+  "menus":[
+    {
+      "name":"home",
+      "path": ""
+    },
+    {
+      "name":"hello",
+      "path": ""
+    },
+    {
+      "name":"button",
+      "path": ""
+    }
+  ]
+}
