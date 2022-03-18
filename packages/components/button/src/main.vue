@@ -30,7 +30,7 @@ export default {
     type: {
       type: String,
       // 设置默认值：如果不传值，那么使用default
-      default: "",
+      default: "base",
     },
     size: {
       type: String,
@@ -75,9 +75,8 @@ export default {
 };
 </script>
  
-<style scoped>
-@import url('../../../styles/var.css');
-
+<style lang="scss">
+@import "~/styles/var.scss";
 
 .g-button {
   display: inline-block;
@@ -100,23 +99,26 @@ export default {
   border-radius: 4px;
 }
 .g-button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .g-button:active {
-  opacity: 0.7;
+  opacity: 1;
 }
-
+.g-button-base {
+  background-color: $base;
+  border-color: $base;
+}
 .g-button-primary {
   color: #fff;
-  background-color: var(--primary);
-  border-color: var(--primary);
+  background-color: $primary;
+  border-color: $primary;
 }
 
 /* 朴素按钮样式 */
 .g-button-primary.is-plain {
   background: #fff;
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: $primary;
+  color: $primary;
 }
 
 .g-button.is-round {
@@ -148,10 +150,10 @@ export default {
   border-radius: 0;
 }
 .g-button-small {
-  transform: scale(0.8);
+  padding: 10px 18px;
 }
 .g-button-big {
-  transform: scale(1.2);
+  padding: 14px 22px;
 }
 
 /* 间距 */

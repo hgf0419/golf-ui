@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import GolfUI from '../packages/index'
+import GolfUI from '~/index'
 Vue.use(GolfUI)
 
 Vue.config.productionTip = false

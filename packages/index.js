@@ -1,8 +1,7 @@
 import Hello from './components/hello/index'
 import Button from './components/button/index'
 // import Panel from './components/panel/index'
-import Msg from './components/msg/index'
-
+//import Msg from './components/msg/index'
 
 const components = [
   Hello,
@@ -27,7 +26,7 @@ const install = function (Vue) {
   })
 
   // 添加实例方法
-  Vue.prototype.$msg = Msg;
+  //Vue.prototype.$msg = Msg;
   Vue.prototype.$mobile = mobile;
 
 

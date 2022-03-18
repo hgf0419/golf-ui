@@ -1,4 +1,4 @@
-
+const path = require('path');
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   devServer: {
@@ -7,6 +7,10 @@ module.exports = {
   },
   // 扩展 webpack 配置，
   chainWebpack: config => {
+    // @ 默认指向 src 目录,新增一个 ~ 指向 packages
+    config.resolve.alias
+    .set('~', path.resolve('packages'))
+
 
     // 使 packages 加入编译 因为新增的文件默认是不被 webpack 处理的
     config.module
@@ -21,17 +25,5 @@ module.exports = {
         return options
       })
 
-
-    config.module
-      .rule('md')
-      .test(/\.md/)
-      .use('vue-loader')
-      .loader('vue-loader')
-      .end()
-      .use('vue-markdown-loader')
-      .loader('vue-markdown-loader/lib/markdown-compiler')
-      .options({
-        raw: true
-      });
   }
 }

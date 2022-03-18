@@ -9,11 +9,12 @@
     <!-- 动态组件 -->
     <div class="main">
       <div class="">
-        <view-home v-show="menu == 'home'"></view-home>
+        
 
         <view-hello v-show="menu == 'hello'"></view-hello>
 
         <view-button v-show="menu == 'button'"></view-button>
+        <view-msg v-show="menu == 'msg'"></view-msg>
       </div>
     </div>
   </div>
@@ -24,14 +25,14 @@
 
 import cfg from "./views/cfg.json";
 
-import viewHome from "./views/view-home.vue";
+import viewMsg from "./views/view-msg.vue";
 import viewHello from "./views/view-hello.vue";
 import viewButton from "./views/view-button.vue";
 
 export default {
   name: "App",
   components: {
-    viewHome,
+    viewMsg,
     viewHello,
     viewButton,
   },

@@ -1,15 +1,15 @@
 {
-  "menus":[
-    {
-      "name":"home",
-      "path": ""
-    },
+  "menus":[ 
     {
       "name":"hello",
       "path": ""
     },
     {
       "name":"button",
+      "path": ""
+    },
+    {
+      "name":"msg",
       "path": ""
     }
   ]

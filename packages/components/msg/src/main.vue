@@ -33,8 +33,8 @@ export default {
 };
 </script>
 
-<style scoped>
-@import url("../../../styles/var.css");
+<style lang="scss">
+
 
 .g__msg {
   width: 300px;
@@ -43,11 +43,11 @@ export default {
   margin-bottom: 20px;
 }
 .g__msg--info {
-  background-color: var(--info);
+  background-color: $info;
   color: #fff;
 }
 .g__msg--primary {
-  background-color: var(--primary);
+  background-color: $primary;
   color: #fff;
 }
 
