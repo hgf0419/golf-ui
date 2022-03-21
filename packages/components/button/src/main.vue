@@ -3,16 +3,16 @@
   <button
     class="g-button"
     :class="[
-      `g-button-${type}`,
-      `g-button-${size}`,
+      type ? 'g-button--' + type : '',
+      size ? 'g-button--' + size : '',
+      shape ? 'g-button--' + shape : '',
       {
         'is-plain': plain,
-        'is-round': round,
-        'is-circle': circle,
-        'is-disabled': disabled,
         'is-straight': straight,
+        'is-disabled': disabled,
       },
     ]"
+    :style="get_style"
     @click="handleClick"
     :disabled="disabled"
   >
@@ -32,22 +32,24 @@ export default {
       // 设置默认值：如果不传值，那么使用default
       default: "base",
     },
+    plain: {
+      type: Boolean,
+      default: false,
+    },
+    straight: {
+      type: Boolean,
+      default: false,
+    },
+
     size: {
       type: String,
       // 设置默认值：如果不传值，那么使用default
       default: "",
     },
-    plain: {
-      type: Boolean,
-      default: false,
-    },
-    round: {
-      type: Boolean,
-      default: false,
-    },
-    circle: {
-      type: Boolean,
-      default: false,
+
+    shape: {
+      type: String,
+      default: "",
     },
     icon: {
       type: String,
@@ -57,14 +59,33 @@ export default {
       type: Boolean,
       default: false,
     },
-    straight: {
-      type: Boolean,
-      default: false,
+    bg: {
+      type: String,
+      default: "",
+    },
+    color: {
+      type: String,
+      default: "",
     },
   },
   created() {
     // 显示所有插槽
     // console.log(this.$slots)
+  },
+  computed: {
+    get_style() {
+      const bg=this.bg;
+      const color=this.color;
+      if (bg || color) {
+        return {
+          background: bg,
+          borderColor: bg,
+          color: color||'#fff',
+        };
+      }else{
+        return null;
+      }
+    },
   },
   methods: {
     // 定义一个点击事件，这个点击事件的作用是调用父组件中的点击事件，并且回调
@@ -79,13 +100,13 @@ export default {
 @import "~/styles/var.scss";
 
 .g-button {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 24px;
+  font-size: 14px;
   display: inline-block;
-  line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  background: #ffffff;
-  border: 1px solid #dcdfe6;
-  color: #606266;
   -webkit-appearance: none;
   text-align: center;
   box-sizing: border-box;
@@ -94,9 +115,8 @@ export default {
   transition: 0.1s;
   font-weight: 500;
   user-select: none;
-  padding: 12px 20px;
-  font-size: 14px;
   border-radius: 4px;
+  border:none;
 }
 .g-button:hover {
   opacity: 0.8;
@@ -104,39 +124,40 @@ export default {
 .g-button:active {
   opacity: 1;
 }
-.g-button-base {
+.g-button--base {
+  color: #333;
   background-color: $base;
-  border-color: $base;
 }
-.g-button-primary {
+.g-button--primary {
   color: #fff;
   background-color: $primary;
-  border-color: $primary;
+}
+.g-button--small {
+  font-size: 12px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 20px;
+}
+.g-button--large {
+  font-size: 16px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 28px;
 }
 
 /* 朴素按钮样式 */
-.g-button-primary.is-plain {
+.g-button--base.is-plain {
   background: #fff;
-  border-color: $primary;
+  border: 1px solid $base;
+}
+.g-button--primary.is-plain {
+  background: #fff;
   color: $primary;
-}
-
-.g-button.is-round {
-  border-radius: 20px;
-  padding: 12px 23px;
-}
-
-/* circle属性 */
-.g-button.is-circle {
-  border-radius: 50%;
-  padding: 12px;
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
+  border: 1px solid $primary;
 }
 
 /* icon配套样式 */
-.g-button [class*="p-icon-"] + span {
+.g-button [class*="g-icon-"] + span {
   margin-left: 5px;
 }
 
@@ -149,11 +170,22 @@ export default {
 .g-button.is-straight {
   border-radius: 0;
 }
-.g-button-small {
-  padding: 10px 18px;
+/* ellipse */
+.g-button--ellipse {
+  border-radius: 40px;
 }
-.g-button-big {
-  padding: 14px 22px;
+/* square */
+.g-button--square {
+  width: 40px;
+  padding: 0 !important;
+  overflow: hidden;
+}
+/* circle */
+.g-button--circle {
+  width: 40px;
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 /* 间距 */

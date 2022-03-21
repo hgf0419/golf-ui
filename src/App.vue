@@ -79,4 +79,12 @@ body {
   margin: 10px auto;
   border: 1px dashed #ddd;
 }
+
+/*  */
+.line{
+  margin-bottom: 10px;
+}
+.m-b{
+  margin-bottom: 5px;
+}
 </style>
