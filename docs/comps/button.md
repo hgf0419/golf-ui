@@ -2,19 +2,37 @@
 常用的操作按钮
 
 ## 基础用法
+
 <template>
     <div>
-        <g-button>测试</g-button>
-        <g-button type="primary">测试</g-button>
+        <demo>
+            <g-button>测试按钮</g-button>
+            <g-button type="primary">测试按钮</g-button>
+        </demo>
+        <demo>
+            <g-button plain>测试按钮</g-button>
+            <g-button type="primary" plain>测试按钮</g-button>
+        </demo>
+        <demo>
+            <g-button straight>测试按钮</g-button>
+            <g-button type="primary" straight>测试按钮</g-button>
+        </demo>
     </div>
 </template>
 
+```
+<demo>
+    <g-button>测试按钮</g-button>
+    <g-button type="primary">测试按钮</g-button>
+</demo>
+<demo>
+    <g-button plain>测试按钮</g-button>
+    <g-button type="primary" plain>测试按钮</g-button>
+</demo>
+<demo>
+    <g-button straight>测试按钮</g-button>
+    <g-button type="primary" straight>测试按钮</g-button>
+</demo>
 
 ```
-<template>
-    <div>
-        <g-button>测试</g-button>
-        <g-button type="primary">测试</g-button>
-    </div>
-</template>
-```
+

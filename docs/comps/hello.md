@@ -2,8 +2,16 @@
 示例组件
 
 ## 基础用法
-<g-hello />
+<template>
+    <demo>
+        <g-hello></g-hello>
+        <g-hello text="test text"></g-hello>
+    </demo>    
+</template>
 
-::: v-pre
-`<HelloWord :name="'petty'" />`
-:::
+```
+<demo>
+    <g-hello></g-hello>
+    <g-hello text="test text"></g-hello>
+</demo>
+```

@@ -97,7 +97,7 @@ export default {
 </script>
  
 <style lang="scss">
-@import "~/styles/var.scss";
+@import "../../../styles/var.scss";
 
 .g-button {
   height: 40px;

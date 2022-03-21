@@ -1,7 +1,7 @@
 module.exports = {
     theme: '',
-    title: 'petty-ui',
-    description: 'VuePress搭建的petty-ui组件库文档',
+    title: 'golf-ui',
+    description: 'VuePress搭建的golf-ui组件库文档',
     base: '/',
     port: '6061',
     themeConfig: {
@@ -21,7 +21,7 @@ module.exports = {
       ],
       // 配置侧边栏部分
       sidebar: { 
-        '/comps/': ['/comps/', '/comps/helloWord.md', '/comps/button.md'],
+        '/comps/': ['/comps/', '/comps/hello.md', '/comps/button.md'],
         '/directs/': ['/directs/', '/directs/debounce.md']
       },
     },
