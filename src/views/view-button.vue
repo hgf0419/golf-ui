@@ -42,7 +42,7 @@
     <div class="line">
       <g-button bg="#f90">测试按钮</g-button>
       <g-button bg="linear-gradient(to right, #ff6034, #ee0a24)">测试按钮</g-button>
-      <g-button color="#09f">测试按钮</g-button>
+      <g-button color="blue">测试按钮</g-button>
       <g-button bg="#f90" color="#f00">测试按钮</g-button>
       
     </div>

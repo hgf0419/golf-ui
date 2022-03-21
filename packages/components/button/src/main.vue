@@ -116,7 +116,7 @@ export default {
   font-weight: 500;
   user-select: none;
   border-radius: 4px;
-  border:none;
+  border:1px solid transparent;
 }
 .g-button:hover {
   opacity: 0.8;
@@ -125,8 +125,8 @@ export default {
   opacity: 1;
 }
 .g-button--base {
-  color: #333;
-  background-color: $base;
+  color: $base_color;
+  background-color: $base_bg;
 }
 .g-button--primary {
   color: #fff;
@@ -148,7 +148,7 @@ export default {
 /* 朴素按钮样式 */
 .g-button--base.is-plain {
   background: #fff;
-  border: 1px solid $base;
+  border: 1px solid $base_bg;
 }
 .g-button--primary.is-plain {
   background: #fff;
