@@ -1,12 +1,14 @@
 import Hello from './components/hello/index'
 import Button from './components/button/index'
-// import Panel from './components/panel/index'
+import Panel from './components/panel/index'
+import Bar from './components/bar/index'
 //import Msg from './components/msg/index'
 
 const components = [
   Hello,
   Button,
-  // Panel,
+  Panel,
+  Bar,
 
 ]
 

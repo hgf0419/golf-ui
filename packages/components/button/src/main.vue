@@ -125,8 +125,8 @@ export default {
   opacity: 1;
 }
 .g-button--base {
-  color: $base_color;
-  background-color: $base_bg;
+  color: $base_textColor;
+  background-color: $base;
 }
 .g-button--primary {
   color: #fff;
@@ -148,7 +148,7 @@ export default {
 /* 朴素按钮样式 */
 .g-button--base.is-plain {
   background: #fff;
-  border: 1px solid $base_bg;
+  border: 1px solid $base;
 }
 .g-button--primary.is-plain {
   background: #fff;

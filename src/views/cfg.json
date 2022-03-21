@@ -9,6 +9,14 @@
       "path": ""
     },
     {
+      "name":"panel",
+      "path": ""
+    },
+    {
+      "name":"bar",
+      "path": ""
+    },
+    {
       "name":"msg",
       "path": ""
     }
