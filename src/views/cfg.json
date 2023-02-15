@@ -1,20 +1,12 @@
 {
   "menus":[ 
     {
-      "title":"button",
-      "name": "view-button"
-    },
-    {
       "title":"panel",
       "name": "view-panel"
     },
     {
       "title":"bar",
       "name": "view-bar"
-    },
-    {
-      "title":"msg",
-      "name": "view-msg"
     }
   ]
 }

@@ -2,32 +2,30 @@
   <div
     class="gf-panel"
     :class="[
-    type&&'gf-panel--' + type,
+      type && 'gf-panel--' + type,
       {
+        'is-collapse': is_collapse,
         'no-divider': noDivider,
         'no-border': noBorder,
-        'is-collapse': is_collapse,
       },
     ]"
   >
     <div class="gf-panel__header">
       <!-- slot:title -->
       <slot name="title">
-        <!-- 默认内容 -->
+        <!-- 默认title -->
         <div class="gf-panel__title">{{ title }}</div>
       </slot>
-
       <div>
         <span
           v-if="toggle"
           class="gf-panel__toggle"
           @click="is_collapse = !is_collapse"
-        >         
-          {{is_collapse?'&#8744;':'&#8743;'}}
+        >
+          {{ is_collapse ? "&#8744;" : "&#8743;" }}
         </span>
       </div>
     </div>
-
     <div class="gf-panel__body" v-if="!is_collapse">
       <!-- slot -->
       <slot></slot>
@@ -47,7 +45,6 @@ export default {
       type: String,
       default: "",
     },
-    
     // 是否可切换
     toggle: {
       type: Boolean,
@@ -56,13 +53,13 @@ export default {
     collapsed: {
       type: Boolean,
     },
-    // 无边框
-    noBorder: {
+    // 是否无分割线
+    noDivider: {
       type: Boolean,
       default: false,
     },
-    // 无边框
-    noDivider: {
+    // 是否无边框
+    noBorder: {
       type: Boolean,
       default: false,
     },
@@ -70,7 +67,6 @@ export default {
   data() {
     // 初始值
     let is_collapse = this.toggle ? this.collapsed : false;
-
     return {
       is_collapse,
     };
@@ -119,11 +115,11 @@ export default {
   }
 }
 
-.gf-panel--info .gf-panel__header{
+.gf-panel--info .gf-panel__header {
   background-color: #d9edf7;
 }
 
-.gf-panel--white .gf-panel__header{
+.gf-panel--white .gf-panel__header {
   background-color: #fff;
 }
 
@@ -133,7 +129,6 @@ export default {
 .gf-panel.no-border {
   border: none;
 }
-
 
 .gf-panel.is-collapse {
   .gf-panel__header {

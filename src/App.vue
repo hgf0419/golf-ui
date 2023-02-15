@@ -24,18 +24,15 @@
 import cfg from "./views/cfg.json";
 
 // 示例页面
-import viewButton from "./views/view-button.vue";
 import viewPanel from "./views/view-panel.vue";
 import viewBar from "./views/view-bar.vue";
-import viewMsg from "./views/view-msg.vue";
+
 
 export default {
   name: "App",
   components: {
-    viewButton,
     viewPanel,
     viewBar,
-    viewMsg,
   },
   data() {
     return {

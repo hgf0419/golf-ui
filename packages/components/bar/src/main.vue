@@ -1,8 +1,8 @@
 <template>
   <div
-    class="g-bar"
+    class="gf-bar"
     :class="[
-      `g-bar--${type}`,
+      `gf-bar--${type}`,
     ]"
     :style="colorStyle"
   >
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "g-bar",
+  name: "gf-bar",
   props: {
     title: {
       type: String,
@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../styles/var.scss";
-.g-bar {
+.gf-bar {
   background: #fff;
   padding: 10px 15px;
   margin-bottom: 15px;
@@ -57,11 +57,11 @@ export default {
     color: #000;
   }
 }
-.g-bar--base {
+.gf-bar--base {
   border-left: 5px solid $base;
 }
 
-.g-bar--primary {
+.gf-bar--primary {
   border-left: 5px solid $primary;
 }
 

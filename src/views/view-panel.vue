@@ -9,7 +9,7 @@
       <div>这是一段信息</div>
     </gf-panel>
 
-    <gf-panel title="这是标题 - info" type="white">
+    <gf-panel title="这是标题 - white" type="white">
       <div>这是一段信息</div>
     </gf-panel>
 
@@ -22,7 +22,7 @@
       <div>这是一段信息</div>
     </gf-panel>
 
-    <gf-panel title="这是标题 - info" type="white" no-divider>
+    <gf-panel title="这是标题 - white" type="white" no-divider>
       <div>这是一段信息</div>
     </gf-panel>
 
