@@ -1,15 +1,12 @@
-import Hello from './components/hello/index'
 import Button from './components/button/index'
 import Panel from './components/panel/index'
 import Bar from './components/bar/index'
 //import Msg from './components/msg/index'
 
 const components = [
-  Hello,
   Button,
   Panel,
   Bar,
-
 ]
 
 import mobile from './utils/mobile';
@@ -30,8 +27,6 @@ const install = function (Vue) {
   // 添加实例方法
   //Vue.prototype.$msg = Msg;
   Vue.prototype.$mobile = mobile;
-
-
 
 
   // 添加全局指令

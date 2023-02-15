@@ -1,19 +1,35 @@
 <template>
   <div
-    class="g-panel"
+    class="gf-panel"
     :class="[
-      `g-panel--${type}`,
+    type&&'gf-panel--' + type,
       {
-        'is-straight': straight,
-        'is-plain': plain,
+        'no-divider': noDivider,
+        'no-border': noBorder,
+        'is-collapse': is_collapse,
       },
     ]"
   >
-    <div class="head">
-      <slot name="head"></slot>
-      <span class="title" v-if="title">{{ title }}</span>
+    <div class="gf-panel__header">
+      <!-- slot:title -->
+      <slot name="title">
+        <!-- 默认内容 -->
+        <div class="gf-panel__title">{{ title }}</div>
+      </slot>
+
+      <div>
+        <span
+          v-if="toggle"
+          class="gf-panel__toggle"
+          @click="is_collapse = !is_collapse"
+        >         
+          {{is_collapse?'&#8744;':'&#8743;'}}
+        </span>
+      </div>
     </div>
-    <div class="body">
+
+    <div class="gf-panel__body" v-if="!is_collapse">
+      <!-- slot -->
       <slot></slot>
     </div>
   </div>
@@ -21,7 +37,7 @@
 
 <script>
 export default {
-  name: "g-panel",
+  name: "gf-panel",
   props: {
     title: {
       type: String,
@@ -29,88 +45,99 @@ export default {
     },
     type: {
       type: String,
-      // 设置默认值：如果不传值，那么使用default
-      default: "base",
-    },
-    straight: {
-      type: Boolean,
-      default: false,
-    },
-    plain: {
-      type: Boolean,
-      default: false,
+      default: "",
     },
     
+    // 是否可切换
+    toggle: {
+      type: Boolean,
+    },
+    // 默认是否收起
+    collapsed: {
+      type: Boolean,
+    },
+    // 无边框
+    noBorder: {
+      type: Boolean,
+      default: false,
+    },
+    // 无边框
+    noDivider: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    // 初始值
+    let is_collapse = this.toggle ? this.collapsed : false;
+
+    return {
+      is_collapse,
+    };
   },
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../../styles/var.scss";
-
-.g-panel { 
+<style lang="scss">
+.gf-panel {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
   margin-bottom: 15px;
-  .head {
-    padding: 10px 15px;
+  position: relative;
+  box-sizing: border-box;
+  .gf-panel__header {
+    color: #333;
+    height: 40px;
+    padding: 0 15px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    .title {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .gf-panel__title {
       font-size: 15px;
       font-weight: 600;
     }
+    .gf-panel__toggle {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: #666;
+      background-color: #ddd;
+      font-size: 14px;
+      cursor: pointer;
+    }
   }
-  .body {
+  .gf-panel__body {
     padding: 10px 15px;
-    background-color: #fff;
+    min-height: 40px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
   }
 }
 
+.gf-panel--info .gf-panel__header{
+  background-color: #d9edf7;
+}
 
-.g-panel--base {
-  .head {
-    background-color: $base;
-    border: 1px solid $base_borderColor;
+.gf-panel--white .gf-panel__header{
+  background-color: #fff;
+}
+
+.gf-panel.no-divider .gf-panel__header {
+  border-color: transparent;
+}
+.gf-panel.no-border {
+  border: none;
+}
+
+
+.gf-panel.is-collapse {
+  .gf-panel__header {
     border-bottom: none;
-    .title{
-      color: #000;
-    }
-  }
-  .body{
-    border: 1px solid $base_borderColor;
-  }
-}
-
-.g-panel--primary {
-  .head {
-    background-color: $primary;
-    color: #fff;
-    border: 1px solid $primary;
-    border-bottom: none;
-  }
-  .body{
-    border: 1px solid $primary;
-  }
-}
-
-// straight属性
-.g-panel.is-straight {
-  .head {
-    border-radius: 0;
-  }
-  .body{
-    border-radius: 0;
-  }
-}
-
-// 朴素样式
-.g-panel.is-plain {
-  .head {
-    background-color: #fff;
-    .title{
-      color: #000;
-    }
   }
 }
 </style>

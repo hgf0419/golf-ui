@@ -1,24 +1,20 @@
 {
   "menus":[ 
     {
-      "name":"hello",
-      "path": ""
+      "title":"button",
+      "name": "view-button"
     },
     {
-      "name":"button",
-      "path": ""
+      "title":"panel",
+      "name": "view-panel"
     },
     {
-      "name":"panel",
-      "path": ""
+      "title":"bar",
+      "name": "view-bar"
     },
     {
-      "name":"bar",
-      "path": ""
-    },
-    {
-      "name":"msg",
-      "path": ""
+      "title":"msg",
+      "name": "view-msg"
     }
   ]
 }

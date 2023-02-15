@@ -2,20 +2,13 @@
   <div id="app">
     <div class="nav">
       <a v-for="item in menus" :key="item.name" @click="change_menu(item)">{{
-        item.name
+        item.title
       }}</a>
     </div>
 
     <!-- 动态组件 -->
     <div class="main" :style="{background:bg}">
-      <div class="">
-        <view-hello v-show="menu == 'hello'"></view-hello>
-
-        <view-button v-show="menu == 'button'"></view-button>
-        <view-panel v-show="menu == 'panel'"></view-panel>
-        <view-bar v-show="menu == 'bar'"></view-bar>
-        <view-msg v-show="menu == 'msg'"></view-msg>
-      </div>
+      <component :is="menu"></component>  
     </div>
 
     <div class="btn-option">
@@ -30,8 +23,7 @@
 
 import cfg from "./views/cfg.json";
 
-
-import viewHello from "./views/view-hello.vue";
+// 示例页面
 import viewButton from "./views/view-button.vue";
 import viewPanel from "./views/view-panel.vue";
 import viewBar from "./views/view-bar.vue";
@@ -40,7 +32,6 @@ import viewMsg from "./views/view-msg.vue";
 export default {
   name: "App",
   components: {
-    viewHello,
     viewButton,
     viewPanel,
     viewBar,
@@ -94,8 +85,7 @@ body {
 
 .main {
   padding: 10px;
-  width: 80%;
-  margin: 10px auto;
+  margin: 10px 100px;
   border: 1px dashed #ddd;
   height: calc(100vh - 70px);
   overflow-y: auto;
@@ -107,6 +97,11 @@ body {
 }
 .m-b{
   margin-bottom: 5px;
+}
+.title{
+  color: #000;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 /*  */
